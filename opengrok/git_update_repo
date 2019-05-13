@@ -1,0 +1,4 @@
+#!/bin/bash
+cd <!change me!>
+#
+cd <!change me!> && git pull
