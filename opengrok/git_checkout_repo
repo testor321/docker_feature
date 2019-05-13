@@ -1,0 +1,4 @@
+#!/bin/bash
+cd <!change me!>
+#
+git clone https://<!change me!>@<!change me!>.git --branch "<!change me!>" --single-branch <!change me!>
