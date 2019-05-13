@@ -1,0 +1,45 @@
+- defaultTab: summary
+  description: refresh git and svn repositories
+  executionEnabled: true
+  group: <!change me!>
+  id: <!change me!>
+  loglevel: INFO
+  name: refresh OpenGrok
+  nodeFilterEditable: false
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '2'
+    filter: 'name: <!change me!>'
+  nodesSelectedByDefault: true
+  notification:
+    onfailure:
+      email:
+        attachLog: true
+        attachLogInFile: true
+        recipients: <!change me!>
+        subject: ${job.id} ${job.project} ${job.name}
+  notifyAvgDurationThreshold: null
+  schedule:
+    month: '*'
+    time:
+      hour: 5,12,19
+      minute: '10'
+      seconds: '0'
+    weekday:
+      day: '*'
+    year: '*'
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - description: update git/bitbucket
+      exec: cd <!change me!> && ./git_update_repo
+    - description: udate svn
+      exec: cd <!change me!> && ./svn_update_repo
+    keepgoing: true
+    strategy: parallel
+  timeZone: <!change me!>
+  uuid: <!change me!>
