@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd  <!change me!>
+./svn_co_wrap.sh anonymous anonymous https://<!change me!> <!change me!>
