@@ -1,0 +1,17 @@
+[Unit]
+Description=openGrok container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=on-failure
+User=oracle
+Group=oinstall
+ExecStartPre=/usr/bin/docker rm opengrok-srv
+ExecStartPre=/usr/bin/docker create -e REINDEX=30 -v <!change me!>:/opengrok/src -p <!change me!>:8080:8080 --name opengrok-srv opengrok/docker:latest
+ExecStart=/usr/bin/docker start -a opengrok-srv
+ExecStop=/usr/bin/docker stop -t 5 opengrok-srv
+ExecStopPost=/usr/bin/docker rm opengrok-srv
+
+[Install]
+WantedBy=multi-user.target
