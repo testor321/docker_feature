@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd  <!change me!>
+./svn_up_wrap.sh anonymous anonymous <!change me!>
